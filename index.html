@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Trozi · Find your next chapter</title>
-<meta name="description" content="Paste any job ad. Trozi tells you if your visa lets you take it, how well you fit, and drafts your CV, cover letter and application answers, all on your phone. Free beta for job seekers in Australia.">
+<meta name="description" content="Paste any job ad. Trozi tells you if your right to work lets you take it, how well you fit, and drafts your CV, cover letter and application answers, all on your phone. Free beta, wherever you're applying.">
 <meta name="theme-color" content="#FCF9F4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Trozi · Find your next chapter">
-<meta property="og:description" content="Can you take this job on your visa? Paste the ad and find out, then get a CV and cover letter built from your real experience. Free beta.">
+<meta property="og:description" content="Are you allowed to take this job? Paste the ad and find out, then get a CV and cover letter built from your real experience. Free beta.">
 <meta property="og:image" content="og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="trozi-icon-v2.svg">
@@ -157,6 +157,9 @@
   .result .verdict .v-title { font-size: 18px; }
   .result .verdict p { font-size: 15px; }
   .result small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 12px; }
+  .ad { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+  .ad b { display: block; color: var(--ink); font-size: 15.5px; margin-bottom: 2px; }
+  .ad span { font-style: italic; }
   .pop { animation: pop 0.35s var(--ease); }
   @keyframes pop { from { transform: scale(0.97); opacity: 0.4; } to { transform: none; opacity: 1; } }
 
@@ -235,9 +238,9 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
       <div>
-        <span class="eyebrow">For job seekers in Australia</span>
+        <span class="eyebrow">For people building a career in a new country</span>
         <h1 id="hero-title">Find your next <span class="accent">chapter.</span></h1>
-        <p class="lede">Paste any job ad. Trozi tells you <strong>if your visa lets you take it</strong>, how well you fit, and drafts your CV, cover letter and application answers from your real experience. All on your phone, between shifts.</p>
+        <p class="lede">Paste any job ad. Trozi tells you <strong>if your right to work lets you take it</strong>, how well you fit, and drafts your CV, cover letter and application answers from your real experience. All on your phone, between shifts.</p>
         <form class="beta" data-beta id="join" novalidate>
           <label class="sr-only" for="email-1">Email address</label>
           <div class="row">
@@ -263,10 +266,10 @@
               <svg class="icon" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="240" fill="#A83223"/><g transform="translate(235 192) scale(2.16)"><path d="M90 40V190C90 253 155 272 200 240M38 128H218" fill="none" stroke="#FCF9F4" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="167" cy="65" r="13" fill="#FCF9F4"/><circle cx="206" cy="65" r="13" fill="#FCF9F4"/></g></svg>
               <div><b>Trozi</b><small>Your job check</small></div>
             </div>
-            <div class="card role">Territory Freight Co<b>Logistics Coordinator</b>Darwin NT</div>
+            <div class="card role">Northline Health<b>Project Manager</b>Toronto, Canada</div>
             <div class="verdict v-ok">
               <div class="v-title">✓ You can take this role</div>
-              <p>The role is in Darwin, a designated regional area, so your 491 visa allows it.</p>
+              <p>You need sponsorship to work in Canada, and this ad offers it.</p>
             </div>
             <div class="card score">
               <svg class="ring" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E5DDD2" stroke-width="6"/><circle cx="29" cy="29" r="24" fill="none" stroke="#2C694E" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="12" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#1C1C19">4.6</text></svg>
@@ -285,29 +288,27 @@
       <div class="checker">
         <span class="eyebrow">Try it</span>
         <h2 id="check-title">Can you take this job?</h2>
-        <p class="sub">On a regional visa, the first question isn't whether you fit. It's whether you're allowed. Pick yours and a job's location.</p>
+        <p class="sub">Wherever you're applying, the first question isn't whether you fit. It's whether you're allowed to take the job. Try a few combinations.</p>
         <div class="checker-grid">
           <div>
-            <p class="q" id="q-visa">Your work rights</p>
+            <p class="q" id="q-visa">Your situation</p>
             <div class="chips" role="radiogroup" aria-labelledby="q-visa">
-              <label class="chip"><input type="radio" name="visa" value="491" checked><span>491 regional</span></label>
-              <label class="chip"><input type="radio" name="visa" value="494"><span>494 sponsored</span></label>
-              <label class="chip"><input type="radio" name="visa" value="citizen"><span>Citizen or PR</span></label>
+              <label class="chip"><input type="radio" name="visa" value="rights" checked><span>I have the right to work there</span></label>
+              <label class="chip"><input type="radio" name="visa" value="sponsor"><span>I need visa sponsorship</span></label>
+              <label class="chip"><input type="radio" name="visa" value="491"><span>Australian 491 regional visa</span></label>
             </div>
-            <p class="q" id="q-city" style="margin-top:22px">Where's the job?</p>
+            <p class="q" id="q-city" style="margin-top:22px">The job ad</p>
             <div class="chips" role="radiogroup" aria-labelledby="q-city">
-              <label class="chip"><input type="radio" name="city" value="Darwin" checked><span>Darwin</span></label>
-              <label class="chip"><input type="radio" name="city" value="Perth"><span>Perth</span></label>
-              <label class="chip"><input type="radio" name="city" value="Adelaide"><span>Adelaide</span></label>
-              <label class="chip"><input type="radio" name="city" value="Cairns"><span>Cairns</span></label>
-              <label class="chip"><input type="radio" name="city" value="Sydney"><span>Sydney</span></label>
-              <label class="chip"><input type="radio" name="city" value="Melbourne"><span>Melbourne</span></label>
-              <label class="chip"><input type="radio" name="city" value="Brisbane"><span>Brisbane</span></label>
+              <label class="chip"><input type="radio" name="city" value="london" checked><span>London, UK</span></label>
+              <label class="chip"><input type="radio" name="city" value="toronto"><span>Toronto, Canada</span></label>
+              <label class="chip"><input type="radio" name="city" value="darwin"><span>Darwin, Australia</span></label>
+              <label class="chip"><input type="radio" name="city" value="sydney"><span>Sydney, Australia</span></label>
             </div>
           </div>
           <div class="result" aria-live="polite">
+            <p class="ad" id="ad"></p>
             <div class="verdict" id="verdict"></div>
-            <small>A simplified example. In the app, every job ad is checked in full, including citizenship, clearance and "no sponsorship" wording. Guidance only, not legal advice.</small>
+            <small>Simplified examples. In the app, every ad is checked against your own work rights, in any country, with Australia's regional visa rules built in. Guidance only, not legal advice.</small>
           </div>
         </div>
       </div>
@@ -330,7 +331,7 @@
           <h3>Know where you stand</h3>
           <p>In about a minute:</p>
           <ul>
-            <li>Whether your visa allows the role</li>
+            <li>Whether your work rights or visa allow the role</li>
             <li>A fit score out of 5, with where you match and where you fall short</li>
             <li>What to change before you apply</li>
           </ul>
@@ -357,7 +358,7 @@
         <p class="sub" style="margin-top:16px">Every line comes from your real experience. If an answer claims more than your CV says, Trozi points it out so you're never caught off guard in an interview.</p>
       </div>
       <div class="answer" aria-label="Example drafted answer with a flagged sentence">
-        <div class="qline">Selection criterion 1</div>
+        <div class="qline">Application question 1</div>
         <p>I coordinate 25 drivers across 3 depots, including runs to remote communities. By rebuilding our driver rosters in Excel around delivery windows, I cut dispatch delays by 30%. <mark>This improved our on-time delivery rate.</mark></p>
         <div class="flag"><span aria-hidden="true">⚠️</span><span><b>Check this sentence:</b> "improved" isn't in your CV. Keep it only if it's true.</span></div>
       </div>
@@ -370,7 +371,7 @@
       <div class="facts">
         <div class="fact"><h3>Built for your phone</h3><p>Check a job on your break, on the bus, between shifts. No laptop needed.</p></div>
         <div class="fact"><h3>Your data stays yours</h3><p>No ads, no tracking. The AI we use doesn't learn from your CV. Delete any job, or your account, at any time.</p></div>
-        <div class="fact"><h3>Made in Darwin</h3><p>Built in Darwin, for job seekers in regional Australia and the visa questions that come with it.</p></div>
+        <div class="fact"><h3>Works across borders</h3><p>Set your work rights for any country. Built in Darwin, Australia, so it knows Australia's regional visa rules inside out.</p></div>
       </div>
     </div>
   </section>
@@ -408,7 +409,7 @@
       <a href="#join">Join the beta</a>
     </div>
     <p style="margin:0">Trozi, from the Italian <i>trovare</i>, to find. Visa checks are guidance only, not legal advice; confirm anything unusual with a registered migration agent.</p>
-    <p style="margin:0">© 2026 Trozi · Darwin, Northern Territory</p>
+    <p style="margin:0">© 2026 Trozi · Made in Darwin, Australia</p>
   </div>
 </footer>
 
@@ -419,28 +420,42 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // Visa demo: the same rule the app applies to regional visas (designated
-  // regional areas are everywhere except greater Sydney, Melbourne and
-  // Brisbane), simplified for a demo.
-  const METRO = new Set(["Sydney", "Melbourne", "Brisbane"]);
+  // Work-rights demo: the same kinds of verdict the app gives. Sponsorship
+  // wording decides it anywhere; Australia's regional rule (designated
+  // regional areas exclude greater Sydney, Melbourne and Brisbane) adds the
+  // 491 case. Simplified for a demo.
+  const ADS = {
+    london: { role: "Data Analyst · London, UK", quote: "Must have the right to work in the UK. We are unable to offer visa sponsorship." },
+    toronto: { role: "Project Manager · Toronto, Canada", quote: "Visa sponsorship available for the right candidate." },
+    darwin: { role: "Logistics Coordinator · Darwin, Australia", quote: "Must have the right to work in Australia." },
+    sydney: { role: "Registered Nurse · Sydney, Australia", quote: "Must have the right to work in Australia." },
+  };
+  const OK = ["v-ok", "✓ You can take this role"], NO = ["v-no", "✕ Not allowed on your work rights"], CHECK = ["v-check", "! Check before you apply"];
+  const VERDICTS = {
+    rights: { london: [...OK, "You have the right to work where this role is based."], toronto: [...OK, "You have the right to work where this role is based."], darwin: [...OK, "You have the right to work where this role is based."], sydney: [...OK, "You have the right to work where this role is based."] },
+    sponsor: {
+      london: [...NO, "You need sponsorship, and this ad says it can't offer it."],
+      toronto: [...OK, "The ad offers visa sponsorship, which is what you need."],
+      darwin: [...CHECK, "The ad asks for Australian work rights and doesn't mention sponsorship. Ask the employer before you spend time applying."],
+      sydney: [...CHECK, "The ad asks for Australian work rights and doesn't mention sponsorship. Ask the employer before you spend time applying."],
+    },
+    491: {
+      london: [...NO, "A 491 gives you work rights in Australia only. This role needs the right to work in the UK, and the ad rules out sponsorship."],
+      toronto: [...CHECK, "A 491 doesn't cover Canada, but this ad offers sponsorship. Ask about a Canadian work permit."],
+      darwin: [...OK, "The role is in Darwin, a designated regional area, so your 491 visa allows it."],
+      sydney: [...NO, "The role is in Sydney. A 491 needs you to live and work in a designated regional area, and greater Sydney isn't one."],
+    },
+  };
   const verdictEl = document.getElementById("verdict");
+  const adEl = document.getElementById("ad");
   function renderVerdict() {
     const visa = document.querySelector('input[name="visa"]:checked').value;
     const city = document.querySelector('input[name="city"]:checked').value;
-    let cls, title, text;
-    if (visa === "citizen") {
-      cls = "v-ok"; title = "✓ You can take this role";
-      text = `As a citizen or permanent resident you can work anywhere in Australia, including ${city}.`;
-    } else if (METRO.has(city)) {
-      cls = "v-no"; title = "✕ Not allowed on your visa";
-      text = `This role is in ${city}. A ${visa} visa needs you to live and work in a designated regional area, and greater ${city} isn't one.`;
-    } else if (visa === "494") {
-      cls = "v-check"; title = "! Check your visa conditions";
-      text = `${city} is regional, so the location works. A 494 is tied to the employer who sponsored you, so a new employer would normally need to nominate you.`;
-    } else {
-      cls = "v-ok"; title = "✓ You can take this role";
-      text = `The role is in ${city}, a designated regional area, so your 491 visa allows it.`;
-    }
+    const [cls, title, text] = VERDICTS[visa][city];
+    adEl.innerHTML = "";
+    const role = document.createElement("b"); role.textContent = ADS[city].role;
+    const quote = document.createElement("span"); quote.textContent = `“${ADS[city].quote}”`;
+    adEl.append(role, quote);
     verdictEl.className = `verdict ${cls}`;
     verdictEl.innerHTML = "";
     const t = document.createElement("div"); t.className = "v-title"; t.textContent = title;
