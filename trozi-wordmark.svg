@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="505" height="210" viewBox="0 0 505 210" role="img" aria-labelledby="title"><title id="title">Trozi wordmark</title><g transform="translate(20 20)"><g fill="none" stroke="#1C1C19" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+<path d="M25 20V112C25 148 43 163 65 153M4 64H60"/>
+<path d="M105 153V118C105 83 122 64 151 64"/>
+<ellipse cx="220" cy="108.5" rx="44.5" ry="44.5"/>
+<path d="M303 64H391L303 153H391"/>
+<path d="M445 64V153"/>
+</g><circle cx="445" cy="14" r="20" fill="#1C1C19"/></g></svg>
