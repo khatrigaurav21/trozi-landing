@@ -53,30 +53,34 @@
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   :focus-visible { outline: 3px solid var(--eucalyptus); outline-offset: 3px; border-radius: 6px; }
 
-  /* Header */
-  .top { position: sticky; top: 0; z-index: 10; background: rgba(252, 249, 244, 0.88); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-  .top.scrolled { border-color: var(--line); }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  /* Header: floating pill */
+  .top { position: sticky; top: 0; z-index: 10; padding: 12px 12px 0; pointer-events: none; }
+  .bar { pointer-events: auto; max-width: 900px; margin: 0 auto; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 10px 0 18px; background: rgba(255, 255, 255, 0.86); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); border: 1px solid rgba(229, 221, 210, 0.9); border-radius: 999px; box-shadow: 0 1px 2px rgba(60, 30, 20, 0.05), 0 14px 34px -16px rgba(60, 30, 20, 0.25); }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .brand .icon { width: 34px; height: 34px; }
   .brand .word { height: 22px; width: auto; }
-  .pill-link { font-weight: 700; font-size: 15px; text-decoration: none; color: #fff; background: var(--terracotta); padding: 10px 16px; border-radius: 999px; transition: background 0.2s; white-space: nowrap; }
-  .pill-link:hover { background: var(--terracotta-deep); }
+  .bar .links { display: none; gap: 28px; }
+  .bar .links a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--muted); transition: color 0.2s; }
+  .bar .links a:hover { color: var(--ink); }
+  .pill-link { font-weight: 700; font-size: 15px; text-decoration: none; color: #fff; background: var(--ink); padding: 10px 18px; border-radius: 999px; transition: background 0.2s; white-space: nowrap; }
+  .pill-link:hover { background: var(--terracotta); }
+  section { scroll-margin-top: 90px; }
 
-  /* Hero */
-  .hero { padding: 40px 0 56px; position: relative; overflow: hidden; }
-  .hero::before { /* sun-warmed wash, top right */
-    content: ""; position: absolute; inset: -20% -30% auto auto; width: 70vw; height: 70vw; max-width: 760px; max-height: 760px;
-    background: radial-gradient(closest-side, rgba(168, 50, 35, 0.10), rgba(168, 50, 35, 0));
-    pointer-events: none;
-  }
-  .hero .wrap { display: grid; gap: 40px; align-items: center; position: relative; }
+  /* Hero: centred, phone below */
+  .hero { padding: 40px 0 24px; position: relative; overflow: hidden; text-align: center; }
+  .hero .wrap { display: flex; flex-direction: column; align-items: center; position: relative; }
   .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--eucalyptus); }
   .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
-  h1 { font-size: clamp(46px, 11vw, 92px); line-height: 0.98; letter-spacing: -0.045em; font-weight: 800; margin: 16px 0 18px; }
+  h1 { font-size: clamp(44px, 9.5vw, 80px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800; margin: 16px 0 18px; max-width: 11em; }
   h1 .accent { color: var(--terracotta); }
-  .lede { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+  .lede { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 36em; margin: 0 auto 28px; }
   .lede strong { color: var(--ink); font-weight: 700; }
+  .hero .beta { width: 100%; text-align: left; }
+  .proof { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 40px; padding: 0; margin: 36px 0 0; }
+  .proof li { display: flex; align-items: center; gap: 12px; text-align: left; font-size: 14px; line-height: 1.3; color: var(--muted); }
+  .proof b { display: block; color: var(--ink); font-size: 15px; }
+  .proof .ico { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-size: 19px; flex: none; }
+  .i-green { background: var(--eucalyptus-soft); } .i-terra { background: #F8E3DD; } .i-amber { background: var(--amber-soft); }
 
   /* Beta form */
   .beta { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); max-width: 520px; }
@@ -107,10 +111,26 @@
   .honey { position: absolute; left: -9999px; }
 
   /* Phone mock */
-  .stage { position: relative; display: flex; justify-content: center; }
+  .stage { position: relative; width: 100%; max-width: 860px; margin-top: 48px; display: flex; justify-content: center; padding-bottom: 8px; }
+  .stage::before { content: ""; position: absolute; inset: 8% 0 0; border-radius: 56px; background: radial-gradient(58% 55% at 28% 38%, rgba(168, 50, 35, 0.15), transparent 72%), radial-gradient(58% 55% at 74% 58%, rgba(44, 105, 78, 0.17), transparent 72%); }
+  .stage .phone { position: relative; text-align: left; }
+  .float, .bubble { display: none; position: absolute; }
+  .float { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; box-shadow: var(--shadow); text-align: left; }
+  .f-flag { background: var(--amber-soft); border-color: #F0DDBF; gap: 10px; font-size: 13.5px; line-height: 1.45; }
+  .f-flag b { display: block; color: var(--amber); }
+  .bubble { width: 58px; height: 58px; border-radius: 50%; place-items: center; font-size: 26px; box-shadow: 0 10px 24px -12px rgba(60, 30, 20, 0.35); }
+  @keyframes bob { 50% { transform: translateY(-9px); } }
+  @media (min-width: 900px) {
+    .float.f-score { display: flex; left: 1%; top: 24%; width: 240px; margin: 0; }
+    .float.f-flag { display: flex; right: 0; top: 50%; width: 270px; }
+    .bubble { display: grid; animation: bob 5.5s ease-in-out infinite; }
+    .b1 { left: 14%; top: 5%; background: #F8E3DD; }
+    .b2 { right: 13%; top: 11%; background: var(--eucalyptus-soft); animation-delay: -1.8s; }
+    .b3 { left: 6%; bottom: 14%; background: var(--amber-soft); animation-delay: -3.2s; }
+    .b4 { right: 9%; bottom: 7%; background: #F0E6F4; animation-delay: -4.4s; }
+  }
   .phone {
     width: min(330px, 86vw); border-radius: 46px; background: #161613; padding: 11px; box-shadow: 0 40px 80px -30px rgba(60, 30, 20, 0.55);
-    transform: rotate(2deg);
   }
   .screen { background: var(--cream); border-radius: 36px; overflow: hidden; padding: 18px 14px 20px; }
   .notch { width: 92px; height: 24px; background: #161613; border-radius: 0 0 14px 14px; margin: -18px auto 10px; }
@@ -140,19 +160,18 @@
   .sub { color: var(--muted); font-size: 18px; max-width: 36em; margin: 0; }
 
   /* Visa checker */
-  .checker { background: var(--ink); color: #F6F1EA; border-radius: 32px; padding: 40px 22px; position: relative; overflow: hidden; }
-  .checker::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(44, 105, 78, 0.45), rgba(44, 105, 78, 0)); pointer-events: none; }
-  .checker .eyebrow { color: #9FD3B6; }
-  .checker .sub { color: #CFC5B9; }
+  .checker { background: linear-gradient(135deg, #F8E7E1 0%, #EFEAE0 48%, #E1EEE5 100%); color: var(--ink); border-radius: 36px; padding: 40px 22px; position: relative; overflow: hidden; }
+  .checker .eyebrow { color: var(--eucalyptus); }
+  .checker .sub { color: var(--muted); }
   .checker-grid { display: grid; gap: 22px; margin-top: 28px; position: relative; z-index: 1; }
-  .q { font-weight: 700; font-size: 15px; color: #fff; margin: 0 0 10px; }
+  .q { font-weight: 700; font-size: 15px; color: var(--ink); margin: 0 0 10px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip { position: relative; }
   .chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
-  .chip span { display: block; padding: 9px 14px; border-radius: 999px; border: 1.5px solid #4A4540; color: #E8E1D8; font-weight: 600; font-size: 15px; transition: all 0.2s var(--ease); }
-  .chip input:checked + span { background: #F6F1EA; color: var(--ink); border-color: #F6F1EA; }
-  .chip input:focus-visible + span { outline: 3px solid #9FD3B6; outline-offset: 2px; }
-  .result { background: var(--cream); color: var(--ink); border-radius: 22px; padding: 18px; min-height: 150px; }
+  .chip span { display: block; padding: 9px 14px; border-radius: 999px; border: 1.5px solid rgba(28, 28, 25, 0.14); background: rgba(255, 255, 255, 0.7); color: var(--ink); font-weight: 600; font-size: 15px; transition: all 0.2s var(--ease); }
+  .chip input:checked + span { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .chip input:focus-visible + span { outline: 3px solid var(--eucalyptus); outline-offset: 2px; }
+  .result { background: #fff; box-shadow: var(--shadow); color: var(--ink); border-radius: 22px; padding: 18px; min-height: 150px; }
   .result .verdict { margin: 0; padding: 16px; }
   .result .verdict .v-title { font-size: 18px; }
   .result .verdict p { font-size: 15px; }
@@ -165,7 +184,11 @@
 
   /* Steps */
   .steps { display: grid; gap: 16px; margin-top: 30px; counter-reset: step; }
-  .step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; position: relative; }
+  .step { background: #F9EAE5; border-radius: 28px; padding: 28px; position: relative; }
+  .step:nth-child(2) { background: #E4EFE7; }
+  .step:nth-child(3) { background: #FBF0DF; }
+  .center-head { text-align: center; }
+  .center-head .eyebrow { justify-content: center; }
   .step .n { font-weight: 800; font-size: 54px; line-height: 1; color: var(--terracotta); letter-spacing: -0.04em; opacity: 0.9; }
   .step h3 { font-size: 22px; letter-spacing: -0.02em; margin: 12px 0 6px; }
   .step p { margin: 0; color: var(--muted); }
@@ -173,7 +196,7 @@
   .step li { display: flex; gap: 8px; font-size: 15.5px; }
   .step li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--eucalyptus); margin-top: 10px; flex: none; }
   .sites { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .sites span { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--sand); color: var(--muted); }
+  .sites span { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.75); color: var(--muted); }
 
   /* Honesty */
   .honest { display: grid; gap: 26px; align-items: center; }
@@ -188,7 +211,7 @@
 
   /* Facts */
   .facts { display: grid; gap: 14px; margin-top: 30px; }
-  .fact { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .fact { background: var(--sand); border-radius: 24px; padding: 24px; }
   .fact h3 { font-size: 19px; margin: 0 0 4px; letter-spacing: -0.01em; }
   .fact p { margin: 0; color: var(--muted); font-size: 15.5px; }
 
@@ -206,8 +229,8 @@
 
   /* Larger screens */
   @media (min-width: 900px) {
-    .hero { padding: 64px 0 72px; }
-    .hero .wrap { grid-template-columns: 1.15fr 0.85fr; gap: 56px; }
+    .hero { padding: 56px 0 40px; }
+    .bar .links { display: flex; }
     section { padding: 80px 0; }
     .checker { padding: 64px 56px; }
     .checker-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
@@ -225,23 +248,23 @@
 <body>
 
 <header class="top" id="top">
-  <div class="wrap">
+  <nav class="bar" aria-label="Main">
     <a class="brand" href="#" aria-label="Trozi home">
       <svg class="icon" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="240" fill="#A83223"/><g transform="translate(235 192) scale(2.16)"><path d="M90 40V190C90 253 155 272 200 240M38 128H218" fill="none" stroke="#FCF9F4" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="167" cy="65" r="13" fill="#FCF9F4"/><circle cx="206" cy="65" r="13" fill="#FCF9F4"/></g></svg>
       <svg class="word" viewBox="0 0 505 210" aria-hidden="true"><g transform="translate(20 20)"><g fill="none" stroke="#1C1C19" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"><path d="M25 20V112C25 148 43 163 65 153M4 64H60"/><path d="M105 153V118C105 83 122 64 151 64"/><ellipse cx="220" cy="108.5" rx="44.5" ry="44.5"/><path d="M303 64H391L303 153H391"/><path d="M445 64V153"/></g><circle cx="445" cy="14" r="20" fill="#1C1C19"/></g></svg>
     </a>
+    <div class="links"><a href="#try">Try it</a><a href="#how">How it works</a><a href="#promise">Our promise</a></div>
     <a class="pill-link" href="#join">Join the beta</a>
-  </div>
+  </nav>
 </header>
 
 <main>
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
-      <div>
-        <span class="eyebrow">For people building a career in a new country</span>
-        <h1 id="hero-title">Find your next <span class="accent">chapter.</span></h1>
-        <p class="lede">Paste any job ad. Trozi tells you <strong>if your right to work lets you take it</strong>, how well you fit, and drafts your CV, cover letter and application answers from your real experience. All on your phone, between shifts.</p>
-        <form class="beta" data-beta id="join" novalidate>
+      <span class="eyebrow">For people building a career in a new country</span>
+      <h1 id="hero-title">Find your next <span class="accent">chapter.</span></h1>
+      <p class="lede">Paste any job ad. Trozi tells you <strong>if your right to work lets you take it</strong>, how well you fit, and drafts your CV, cover letter and application answers from your real experience. All on your phone, between shifts.</p>
+      <form class="beta" data-beta id="join" novalidate>
           <label class="sr-only" for="email-1">Email address</label>
           <div class="row">
             <input id="email-1" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
@@ -256,9 +279,19 @@
           <p class="status" role="status" aria-live="polite"></p>
           <p class="fine">Free during the beta. We'll only email you your invite. <a href="https://career-mate-api.onrender.com/privacy">Privacy</a></p>
         </form>
-      </div>
+      <ul class="proof">
+        <li><span class="ico i-green" aria-hidden="true">✓</span><span><b>Nothing invented</b>Every line comes from your CV</span></li>
+        <li><span class="ico i-terra" aria-hidden="true">🔒</span><span><b>Your CV stays yours</b>The AI doesn't learn from it</span></li>
+        <li><span class="ico i-amber" aria-hidden="true">🎁</span><span><b>Free during the beta</b>iPhone and Android</span></li>
+      </ul>
 
       <div class="stage" aria-hidden="true">
+        <span class="bubble b1">📄</span><span class="bubble b2">✅</span><span class="bubble b3">🌏</span><span class="bubble b4">✉️</span>
+        <div class="card score float f-score">
+          <svg class="ring" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E5DDD2" stroke-width="6"/><circle cx="29" cy="29" r="24" fill="none" stroke="#2C694E" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="12" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#1C1C19">4.6</text></svg>
+          <div><b>Your fit score</b><span>A strong match worth pursuing.</span></div>
+        </div>
+        <div class="float f-flag"><span>⚠️</span><span><b>Check this sentence</b>"improved" isn't in your CV. Keep it only if it's true.</span></div>
         <div class="phone">
           <div class="screen">
             <div class="notch"></div>
@@ -271,19 +304,16 @@
               <div class="v-title">✓ You can take this role</div>
               <p>You need sponsorship to work in Canada, and this ad offers it.</p>
             </div>
-            <div class="card score">
-              <svg class="ring" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E5DDD2" stroke-width="6"/><circle cx="29" cy="29" r="24" fill="none" stroke="#2C694E" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="12" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#1C1C19">4.6</text></svg>
-              <div><b>Your fit score</b><span>A strong match worth pursuing.</span></div>
-            </div>
             <div class="card doc">📄 Tailored CV<span class="dl">Download</span></div>
             <div class="card doc">✉️ Cover letter<span class="dl">Download</span></div>
+            <div class="card doc">💬 Application answers<span class="dl">Draft</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="check-title">
+  <section id="try" aria-labelledby="check-title">
     <div class="wrap">
       <div class="checker">
         <span class="eyebrow">Try it</span>
@@ -315,10 +345,10 @@
     </div>
   </section>
 
-  <section aria-labelledby="how-title">
+  <section id="how" aria-labelledby="how-title">
     <div class="wrap">
-      <span class="eyebrow">How it works</span>
-      <h2 id="how-title">One job ad in.<br>A full application out.</h2>
+      <div class="center-head"><span class="eyebrow">How it works</span>
+      <h2 id="how-title">One job ad in.<br>A full application out.</h2></div>
       <div class="steps">
         <article class="step">
           <div class="n">01</div>
@@ -350,7 +380,7 @@
     </div>
   </section>
 
-  <section aria-labelledby="honest-title">
+  <section id="promise" aria-labelledby="honest-title">
     <div class="wrap honest">
       <div>
         <span class="eyebrow">Our promise</span>
