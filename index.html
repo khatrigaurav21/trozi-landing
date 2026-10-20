@@ -280,9 +280,9 @@
             <button class="btn" type="submit">Join the beta</button>
           </div>
           <fieldset class="phone-choice">
-            <legend>Your phone</legend>
+            <legend>Your phone (Android coming later)</legend>
             <label><input type="radio" name="platform" value="ios" checked><span>iPhone</span></label>
-            <label><input type="radio" name="platform" value="android"><span>Android</span></label>
+            <label><input type="radio" name="platform" value="android"><span>Android (later)</span></label>
           </fieldset>
           <input class="honey" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="status" role="status" aria-live="polite"></p>
@@ -291,7 +291,7 @@
       <ul class="proof">
         <li><span class="ico i-green" aria-hidden="true">✓</span><span><b>Nothing invented</b>Every line comes from your CV</span></li>
         <li><span class="ico i-terra" aria-hidden="true">🔒</span><span><b>Your CV stays yours</b>The AI doesn't learn from it</span></li>
-        <li><span class="ico i-amber" aria-hidden="true">🎁</span><span><b>Free during the beta</b>iPhone and Android</span></li>
+        <li><span class="ico i-amber" aria-hidden="true">🎁</span><span><b>Free during the beta</b>iPhone first, Android later</span></li>
       </ul>
 
       <div class="stage" aria-hidden="true">
@@ -420,7 +420,7 @@
       <div class="final">
         <svg class="mark-big" viewBox="0 0 256 310" aria-hidden="true"><path d="M90 40V190C90 253 155 272 200 240M38 128H218" fill="none" stroke="#FFFFFF" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="167" cy="65" r="13" fill="#FFFFFF"/><circle cx="206" cy="65" r="13" fill="#FFFFFF"/></svg>
         <h2 id="final-title">Your next chapter starts<br>with one job ad.</h2>
-        <p class="sub">Join the free beta. We'll send your invite for iPhone or Android.</p>
+        <p class="sub">Join the free beta. We're starting with iPhone, and we'll tell you when Android is ready.</p>
         <form class="beta" data-beta novalidate>
           <label class="sr-only" for="email-2">Email address</label>
           <div class="row">
@@ -428,9 +428,9 @@
             <button class="btn" type="submit">Join the beta</button>
           </div>
           <fieldset class="phone-choice">
-            <legend>Your phone</legend>
+            <legend>Your phone (Android coming later)</legend>
             <label><input type="radio" name="platform" value="ios" checked><span>iPhone</span></label>
-            <label><input type="radio" name="platform" value="android"><span>Android</span></label>
+            <label><input type="radio" name="platform" value="android"><span>Android (later)</span></label>
           </fieldset>
           <input class="honey" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="status" role="status" aria-live="polite"></p>
@@ -548,7 +548,7 @@
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.error || "Something went wrong. Please try again.");
         form.reset();
-        say(`You're on the list. We'll email your ${platform === "android" ? "Android" : "iPhone"} invite to ${email}.`, "ok");
+        say(platform === "android" ? `You're on the list. Android is coming later, and we'll email ${email} when it's ready.` : `You're on the list. We'll email your iPhone invite to ${email}.`, "ok");
         button.textContent = "You're in ✓";
         return;
       } catch (err) {
