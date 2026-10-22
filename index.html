@@ -221,6 +221,14 @@
   .fact h3 { font-size: 19px; margin: 0 0 4px; letter-spacing: -0.01em; }
   .fact p { margin: 0; color: var(--muted); font-size: 15.5px; }
 
+  /* What happens to your CV */
+  .dgrid { display: grid; gap: 14px; margin-top: 30px; }
+  .dcard { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+  .dcard h3 { font-size: 17px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .dcard p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .dcard a, .fact a { color: var(--terracotta); font-weight: 600; }
+  .dnote { margin-top: 18px; font-size: 14.5px; color: var(--muted); }
+
   /* Final CTA */
   .final { background: var(--terracotta); color: #fff; border-radius: 32px; padding: 44px 22px; text-align: left; position: relative; overflow: hidden; }
   .final h2 { color: #fff; }
@@ -243,6 +251,7 @@
     .steps { grid-template-columns: repeat(3, 1fr); }
     .honest { grid-template-columns: 1fr 1fr; gap: 56px; }
     .facts { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .dgrid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .final { padding: 72px 64px; }
     .final .mark-big { width: 420px; right: -40px; bottom: -110px; }
   }
@@ -290,7 +299,7 @@
         </form>
       <ul class="proof">
         <li><span class="ico i-green" aria-hidden="true">✓</span><span><b>Nothing invented</b>Every line comes from your CV</span></li>
-        <li><span class="ico i-terra" aria-hidden="true">🔒</span><span><b>Your CV stays yours</b>The AI doesn't learn from it</span></li>
+        <li><span class="ico i-terra" aria-hidden="true">🔒</span><span><b>Your CV stays yours</b>Google's paid-tier terms: no AI training on it</span></li>
         <li><span class="ico i-amber" aria-hidden="true">🎁</span><span><b>Free during the beta</b>iPhone first, Android later</span></li>
       </ul>
 
@@ -409,9 +418,26 @@
       <h2 id="facts-title" class="sr-only">Good to know</h2>
       <div class="facts">
         <div class="fact"><span class="ico i-terra" aria-hidden="true">📱</span><h3>Built for your phone</h3><p>Check a job on your break, on the bus, between shifts. No laptop needed.</p></div>
-        <div class="fact"><span class="ico i-green" aria-hidden="true">🔒</span><h3>Your data stays yours</h3><p>No ads, no tracking. The AI we use doesn't learn from your CV. Delete any job, or your account, at any time.</p></div>
+        <div class="fact"><span class="ico i-green" aria-hidden="true">🔒</span><h3>Your data stays yours</h3><p>No ads, no tracking. Under Google's paid-tier terms, the AI we use doesn't learn from your CV. Delete any job, or your account, at any time. <a href="#your-cv">What happens to it</a></p></div>
         <div class="fact"><span class="ico i-amber" aria-hidden="true">🌏</span><h3>Works across borders</h3><p>Set your work rights for any country. Built in Darwin, Australia, so it knows Australia's regional visa rules inside out.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="your-cv" aria-labelledby="your-cv-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="center-head"><span class="eyebrow">Your data</span>
+      <h2 id="your-cv-title">What happens to your CV</h2>
+      <p class="sub" style="margin:12px auto 0;text-align:center">Plain answers, so you can decide before you sign up.</p></div>
+      <div class="dgrid">
+        <div class="dcard"><h3>What we keep</h3><p>Your CV as text (not the original file), the jobs you add, and the CVs, cover letters and answers Trozi writes for you.</p></div>
+        <div class="dcard"><h3>Where it's kept</h3><p>In a database in Singapore. Generated PDFs have long, random web addresses. Anyone who has an address can open that file, so only share it with people you mean to.</p></div>
+        <div class="dcard"><h3>Who processes it</h3><p>Google's Gemini AI, on its paid tier, writes your documents. Google says it doesn't use that content to improve its products, and may keep it briefly to detect abuse.</p></div>
+        <div class="dcard"><h3>Who can see it</h3><p>Trozi is run by one person, who has administrative access to the database. No ads, no analytics, and your data is never sold.</p></div>
+        <div class="dcard"><h3>Deleting it</h3><p>Delete a job, or your whole account, in the app. It's removed straight away from the database and file storage. Copies may remain in our providers' backups for a short time.</p></div>
+        <div class="dcard"><h3>What to leave out</h3><p>Trozi doesn't need your home address or date of birth, so leave them off your CV. If your work involves security clearances or sensitive information, don't put those details into this or any online tool.</p></div>
+      </div>
+      <p class="dnote">The full details are in the <a href="/privacy" style="color:var(--terracotta);font-weight:600">privacy policy</a>. Questions? <a href="mailto:hello@trozi.app" style="color:var(--terracotta);font-weight:600">hello@trozi.app</a></p>
     </div>
   </section>
 
@@ -461,7 +487,7 @@
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || !("IntersectionObserver" in window)) return;
     document.documentElement.classList.add("js");
-    const targets = document.querySelectorAll(".center-head, .checker, .step, .honest > *, .fact, .final");
+    const targets = document.querySelectorAll(".center-head, .checker, .step, .honest > *, .fact, .dcard, .final");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
